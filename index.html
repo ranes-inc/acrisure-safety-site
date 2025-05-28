@@ -1,0 +1,2251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acrisure Safety | Reduce Insurance Costs for High-Risk Industries</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            /* Primary Colors */
+            --acrisure-dark-blue: #002A4E;
+            --acrisure-blue: #36749D;
+            --acrisure-blue-gray: #DDE9F0;
+
+            /* Secondary Colors */
+            --acrisure-gold: #85714D;
+            --acrisure-green: #004F51;
+
+            /* Tertiary Colors */
+            --acrisure-dark-gray: #313131;
+            --acrisure-nickel-silver: #B2B4B2;
+            --acrisure-nickel-silver-rgba: rgba(192, 192, 192, 0.3);
+            --acrisure-purple: #7C6992;
+            --acrisure-burgundy: #9B2743;
+
+            /* Other */
+            --white: #FFFFFF;
+            --black: #000000;
+            --border-radius: 4px;
+            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        :target {
+            scroll-margin-top: 80px;
+            /* Adjust based on your header height */
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--acrisure-dark-gray);
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--acrisure-dark-blue);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--acrisure-blue-gray);
+        }
+
+        .cta-button {
+            background-color: var(--acrisure-gold);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #6d5c3e;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Mobile Navigation Styles */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+                z-index: 1001;
+            }
+
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--acrisure-dark-blue);
+                flex-direction: column;
+                padding: 20px 0;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 0;
+                text-align: center;
+                padding: 15px 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .nav-links li:last-child {
+                border-bottom: none;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 0 20px;
+                font-size: 18px;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--acrisure-dark-blue) 0%, var(--acrisure-blue) 100%);
+            color: var(--white);
+            padding: 60px 0 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("https://clockworksafety-public.s3.us-west-2.amazonaws.com/acrisuresafetycom/img/bg-pattern.png");
+            background-repeat: repeat;
+            background-size: 347px 468px;
+            opacity: .35;
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 160px;
+            background: linear-gradient(to bottom right, transparent 49.9%, var(--white) 50%);
+            z-index: 1;
+        }
+
+        .hero-flex {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content {
+            flex: 1 1 0;
+            min-width: 0;
+            padding-top: 90px;
+        }
+
+        .hero-image-wrapper {
+            flex: 1 1 0;
+            justify-content: flex-end;
+            align-items: baseline;
+            min-width: 0;
+            position: relative;
+            bottom: -40px;
+            z-index: 2;
+            margin-right: -40px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .primary-btn {
+            background-color: var(--acrisure-gold);
+            color: var(--white);
+            padding: 15px 30px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            display: inline-block;
+        }
+
+        .primary-btn:hover {
+            background-color: #6d5c3e;
+        }
+
+        .secondary-btn {
+            background-color: transparent;
+            color: var(--white);
+            padding: 14px 30px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            text-decoration: none;
+            border: 2px solid var(--white);
+            transition: background-color 0.3s, color 0.3s;
+            display: inline-block;
+        }
+
+        .secondary-btn:hover {
+            background-color: var(--white);
+            color: var(--acrisure-dark-blue);
+        }
+
+        .hero-image {
+            max-width: 100%;
+            height: auto;
+            width: 100%;
+            object-fit: contain;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            background-color: var(--white);
+            padding: 40px 0 60px 0;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--acrisure-dark-blue);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            font-size: 18px;
+            color: var(--acrisure-dark-gray);
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .benefit-card {
+            background-color: var(--acrisure-blue-gray);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .benefit-icon {
+            background-color: rgba(54, 116, 157, 0.1);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .benefit-icon i {
+            color: var(--acrisure-blue);
+            font-size: 30px;
+        }
+
+        .benefit-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--acrisure-dark-blue);
+        }
+
+        .benefit-card p {
+            color: var(--acrisure-dark-gray);
+            font-weight: 300;
+        }
+
+        /* RANES Process Section */
+        .ranes-process {
+            padding: 100px 0;
+            background: linear-gradient(to bottom, #DDE9F0 30%, #36749D 100%);
+            position: relative;
+        }
+
+        .ranes-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .ranes-title h2 {
+            font-size: 36px;
+            color: var(--acrisure-dark-blue);
+            margin-bottom: 15px;
+        }
+
+        .ranes-title p {
+            font-size: 18px;
+            color: var(--acrisure-dark-gray);
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        .ranes-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            padding: 0 20px;
+        }
+
+        .ranes-item {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04);
+            transition: transform 0.3s;
+            text-align: center;
+        }
+
+        .ranes-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .ranes-letter {
+            margin-bottom: 15px;
+        }
+
+        .ranes-letter img {
+            width: 40px;
+            height: auto;
+        }
+
+        .ranes-content h3 {
+            color: var(--acrisure-dark-blue);
+            font-size: 16px;
+            margin: 0 0 6px;
+            text-align: center;
+            letter-spacing: 0.6px;
+        }
+
+        .ranes-content p {
+            font-size: 13px;
+            color: var(--acrisure-dark-gray);
+            margin: 0;
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        .ranes-content p strong {
+            color: var(--acrisure-dark-blue);
+        }
+
+        .ranes-summary {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 16px;
+            color: var(--acrisure-dark-gray);
+            font-style: italic;
+        }
+
+        .ranes-summary p {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .ranes-summary strong {
+            color: var(--acrisure-dark-blue);
+        }
+
+        /* Features Section */
+        .features {
+            background-color: var(--acrisure-nickel-silver-rgba);
+            padding: 100px 0;
+        }
+
+        .features-container {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .features-content {
+            flex: 1;
+        }
+
+        .features-content h2 {
+            font-size: 36px;
+            color: var(--acrisure-dark-blue);
+            margin-bottom: 20px;
+        }
+
+        .features-content p {
+            font-size: 18px;
+            color: var(--acrisure-dark-gray);
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .feature-icon {
+            color: var(--acrisure-gold);
+            font-size: 20px;
+            margin-right: 15px;
+            margin-top: 3px;
+        }
+
+        .feature-text h3 {
+            font-size: 20px;
+            margin-bottom: 5px;
+            color: var(--acrisure-dark-blue);
+        }
+
+        .feature-text p {
+            font-size: 16px;
+            color: var(--acrisure-dark-gray);
+            margin: 0;
+            font-weight: 300;
+        }
+
+        .features-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .features-image img {
+            max-width: 100%;
+        }
+
+        /* Broker Section Styles */
+        .broker-section {
+            background-color: var(--white);
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .broker-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M0,0 L100,0 L100,100 L0,100 Z" fill="none" stroke="%23DDE9F0" stroke-width="0.5"/></svg>');
+            background-size: 50px 50px;
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        .broker-container {
+            display: flex;
+            gap: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .broker-content {
+            flex: 1;
+        }
+
+        .broker-content h3 {
+            font-size: 32px;
+            color: var(--acrisure-dark-blue);
+            margin-bottom: 20px;
+        }
+
+        .broker-content>p {
+            font-size: 18px;
+            color: var(--acrisure-dark-gray);
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .broker-benefits {
+            margin-top: 30px;
+        }
+
+        .broker-benefit-item {
+            display: flex;
+            margin-bottom: 25px;
+            background-color: var(--acrisure-blue-gray);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s;
+        }
+
+        .broker-benefit-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .broker-benefit-item .benefit-icon {
+            background-color: rgba(0, 42, 78, 0.1);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .broker-benefit-item .benefit-icon i {
+            color: var(--acrisure-dark-blue);
+            font-size: 24px;
+        }
+
+        .broker-benefit-item .benefit-text h4 {
+            font-size: 20px;
+            margin-bottom: 8px;
+            color: var(--acrisure-dark-blue);
+        }
+
+        .broker-benefit-item .benefit-text p {
+            font-size: 16px;
+            color: var(--acrisure-dark-gray);
+            margin: 0;
+            font-weight: 300;
+        }
+
+        .broker-cta {
+            margin-top: 30px;
+        }
+
+        .broker-case-study {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .case-study-card {
+            background: linear-gradient(135deg, var(--acrisure-dark-blue) 0%, var(--acrisure-blue) 100%);
+            color: var(--white);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            position: relative;
+        }
+
+        .case-study-card h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .quote-mark {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 36px;
+            opacity: 0.2;
+        }
+
+        .case-study-text {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            font-weight: 300;
+        }
+
+        .case-study-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .case-study-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            border: 2px solid var(--white);
+        }
+
+        .case-study-author h4 {
+            font-size: 16px;
+            margin-bottom: 3px;
+        }
+
+        .case-study-author p {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .broker-talking-points {
+            background-color: var(--acrisure-blue-gray);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .broker-talking-points h4 {
+            font-size: 20px;
+            color: var(--acrisure-dark-blue);
+            margin-bottom: 15px;
+        }
+
+        .broker-talking-points ul {
+            list-style: none;
+        }
+
+        .broker-talking-points li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .broker-talking-points li i {
+            color: var(--acrisure-gold);
+            margin-right: 10px;
+            margin-top: 3px;
+        }
+
+        /* Responsive styles for broker section */
+        @media (max-width: 1024px) {
+            .broker-container {
+                flex-direction: column;
+            }
+
+            .broker-case-study {
+                order: -1;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .broker-benefit-item {
+                flex-direction: column;
+            }
+
+            .broker-benefit-item .benefit-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+
+        /* Underwriter Section Styles */
+        .underwriter-section {
+            background-color: var(--acrisure-nickel-silver-rgba);
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .underwriter-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><polygon points="0,0 100,0 50,86.6" fill="none" stroke="%23DDE9F0" stroke-width="0.5"/></svg>');
+            background-size: 100px 100px;
+            opacity: 0.2;
+            z-index: 0;
+        }
+
+        .underwriter-container {
+            display: flex;
+            gap: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .underwriter-visual {
+            flex: 1;
+        }
+
+        .data-dashboard {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+        }
+
+        /* Remove all the dashboard-specific styles since we're using an image */
+        .dashboard-header,
+        .dashboard-controls,
+        .dashboard-metrics,
+        .metric-card,
+        .metric-icon,
+        .metric-data,
+        .metric-value,
+        .metric-trend,
+        .metric-label,
+        .dashboard-footer,
+        .compliance-badge,
+        .dashboard-btn {
+            display: none;
+        }
+
+        .underwriter-content {
+            flex: 1;
+        }
+
+        .underwriter-content h3 {
+            font-size: 32px;
+            color: var(--acrisure-dark-blue);
+            margin-bottom: 20px;
+        }
+
+        .underwriter-content>p {
+            font-size: 18px;
+            color: var(--acrisure-dark-gray);
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .underwriter-benefits {
+            margin-top: 30px;
+        }
+
+        .underwriter-benefit-item {
+            display: flex;
+            margin-bottom: 20px;
+            background-color: var(--white);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s;
+        }
+
+        .underwriter-benefit-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .underwriter-benefit-item .benefit-icon {
+            background-color: rgba(0, 42, 78, 0.1);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .underwriter-benefit-item .benefit-icon i {
+            color: var(--acrisure-dark-blue);
+            font-size: 24px;
+        }
+
+        .underwriter-benefit-item .benefit-text h4 {
+            font-size: 20px;
+            margin-bottom: 8px;
+            color: var(--acrisure-dark-blue);
+        }
+
+        .underwriter-benefit-item .benefit-text p {
+            font-size: 16px;
+            color: var(--acrisure-dark-gray);
+            margin: 0;
+            font-weight: 300;
+        }
+
+        .underwriter-quote {
+            background-color: var(--white);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin-top: 30px;
+            position: relative;
+        }
+
+        .quote-icon {
+            color: var(--acrisure-blue);
+            font-size: 30px;
+            opacity: 0.2;
+            position: absolute;
+            top: 15px;
+            left: 15px;
+        }
+
+        .underwriter-quote p {
+            font-size: 16px;
+            color: var(--acrisure-dark-gray);
+            margin: 0 0 20px;
+            padding-left: 25px;
+            font-style: italic;
+        }
+
+        .quote-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .quote-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .quote-author h5 {
+            font-size: 16px;
+            margin: 0 0 3px;
+            color: var(--acrisure-dark-blue);
+        }
+
+        .quote-author p {
+            font-size: 14px;
+            margin: 0;
+            padding: 0;
+            font-style: normal;
+            color: var(--acrisure-dark-gray);
+        }
+
+        /* Responsive styles for underwriter section */
+        @media (max-width: 1024px) {
+            .underwriter-container {
+                flex-direction: column-reverse;
+            }
+
+            .underwriter-visual {
+                margin-top: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .dashboard-metrics {
+                grid-template-columns: 1fr;
+            }
+
+            .underwriter-benefit-item {
+                flex-direction: column;
+            }
+
+            .underwriter-benefit-item .benefit-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+
+            .dashboard-footer {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 100px 0;
+            background-color: var(--white);
+            position: relative;
+        }
+
+        .testimonials::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><polygon points="0,0 100,0 50,86.6" fill="none" stroke="%23DDE9F0" stroke-width="0.5"/></svg>');
+            background-size: 100px 100px;
+            opacity: 0.2;
+            z-index: 0;
+        }
+
+        .testimonials-slider {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .testimonial-slides {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .testimonial-slide {
+            min-width: 100%;
+            padding: 0 20px;
+        }
+
+        .testimonial-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            border: 1px solid var(--acrisure-blue-gray);
+        }
+
+        .testimonial-quote {
+            font-size: 20px;
+            font-style: italic;
+            color: var(--acrisure-dark-gray);
+            margin-bottom: 30px;
+            position: relative;
+            font-weight: 300;
+        }
+
+        .testimonial-quote::before,
+        .testimonial-quote::after {
+            content: '"';
+            font-size: 50px;
+            color: var(--acrisure-blue);
+            opacity: 0.3;
+            position: absolute;
+        }
+
+        .testimonial-quote::before {
+            top: -20px;
+            left: -15px;
+        }
+
+        .testimonial-quote::after {
+            bottom: -40px;
+            right: -15px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .author-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            font-size: 18px;
+            color: var(--acrisure-dark-blue);
+            margin-bottom: 5px;
+            padding-bottom: 0;
+            margin-bottom: 0;
+            text-align: left;
+        }
+
+        .author-info p {
+            font-size: 14px;
+            color: var(--acrisure-dark-gray);
+            font-weight: 300;
+        }
+
+        .testimonial-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            gap: 10px;
+        }
+
+        .testimonial-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--acrisure-nickel-silver);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .testimonial-dot.active {
+            background-color: var(--acrisure-blue);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--acrisure-dark-blue) 0%, var(--acrisure-blue) 100%);
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("https://clockworksafety-public.s3.us-west-2.amazonaws.com/acrisuresafetycom/img/bg-pattern.png");
+            background-repeat: repeat;
+            background-size: 347px 468px;
+            opacity: 0.35;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-content h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .cta-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--acrisure-dark-blue);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+
+        .footer-logo {
+            margin-bottom: 20px;
+        }
+
+        .footer-logo img {
+            height: 40px;
+        }
+
+        .footer-about p {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .footer-links h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            opacity: 0.8;
+            text-decoration: none;
+            transition: opacity 0.3s;
+            font-weight: 300;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        .footer-contact p {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 14px;
+            opacity: 0.8;
+            font-weight: 300;
+        }
+
+        .footer-contact i {
+            margin-right: 10px;
+            color: var(--acrisure-gold);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            transition: background-color 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--acrisure-gold);
+        }
+
+        .footer-bottom {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            opacity: 0.7;
+        }
+
+        .footer-bottom p {
+            font-weight: 300;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-bottom-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .footer-bottom-links a:hover {
+            opacity: 1;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero-content {
+                padding-top: 60px;
+                padding-bottom: 30px;
+            }
+
+            .hero-image-wrapper {
+                margin-bottom: -30px;
+            }
+
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .features-container {
+                flex-direction: column;
+            }
+
+            .features-image {
+                order: -1;
+                margin-bottom: 40px;
+            }
+
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .ranes-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+
+            .hero::after {
+                height: 90px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                padding: 120px 0 80px;
+                text-align: center;
+            }
+
+            .hero-content {
+                max-width: 100%;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-image {
+                display: none;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ranes-item {
+                flex-direction: column;
+            }
+
+            .ranes-letter {
+                width: 100%;
+                padding: 20px 0;
+            }
+
+            .ranes-letter img {
+                max-width: 80px;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .cta-button {
+                display: none
+            }
+
+            .hero::after {
+                height: 80px;
+            }
+
+        }
+
+        @media (max-width: 900px) {
+            .hero {
+                padding: 100px 0 80px;
+            }
+
+            .hero-flex {
+                flex-direction: column;
+                gap: 30px;
+                text-align: center;
+            }
+
+            .hero-content {
+                padding-top: 30px;
+            }
+
+            .hero-image {
+                width: 100%;
+                max-width: 400px;
+                margin: 0 auto;
+                display: none;
+            }
+
+            .hero::after {
+                height: 100px;
+            }
+        }
+
+        /* Scroll to Top Button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 40px;
+            height: 40px;
+            background-color: var(--acrisure-dark-blue);
+            color: var(--white);
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 999;
+            border: 1px solid #2c5d7e;
+        }
+
+        .scroll-to-top:hover {
+            background-color: var(--acrisure-blue);
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        @media (max-width: 768px) {
+            .scroll-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 35px;
+                height: 35px;
+            }
+        }
+
+        /* Video Modal Styles */
+        .video-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            padding: 40px;
+            box-sizing: border-box;
+        }
+
+        .video-modal.active {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            background: var(--black);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            color: var(--white);
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 2001;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            transition: background-color 0.3s;
+        }
+
+        .close-modal:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        @media (max-width: 768px) {
+            .video-modal {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="https://acrisuresafety.com/_assets/media/09460b5e1028fe8e1a374bef8c459ed3.png"
+                    alt="Acrisure Safety Logo">
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#brokers">Brokers</a></li>
+                    <li><a href="#underwriters">Underwriters</a></li>
+                    <li><a href="https://www.ranes.com/support/" target="_blank">Support</a></li>
+                </ul>
+            </nav>
+            <a href="https://www.ranes.com/acrisure/" class="cta-button">Get Started</a>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-flex">
+            <div class="hero-content">
+                <h1>Lower Your Insurance Costs in High-Risk Industries</h1>
+                <p>Acrisure Safety is a powerful workplace safety platform designed to help heavy industry businesses
+                    reduce risk, save time, and qualify for significant insurance discounts.</p>
+                <div class="hero-buttons">
+                    <a href="https://www.ranes.com/acrisure/" class="primary-btn">Get Started</a>
+                    <a href="#" class="secondary-btn">Watch Intro</a>
+                </div>
+            </div>
+            <div class="hero-image-wrapper">
+                <img src="https://clockworksafety-public.s3.us-west-2.amazonaws.com/acrisuresafetycom/img/cowboy-ranes.png"
+                    alt="Safety App in Action" class="hero-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Acrisure Safety?</h2>
+                <p>Our platform is specifically designed for high-risk industries to help you improve safety compliance
+                    and reduce insurance costs.</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Reduce Insurance Premiums</h3>
+                    <p>Qualify for significant insurance discounts by demonstrating your commitment to workplace safety
+                        through documented compliance.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Improve Safety Culture</h3>
+                    <p>Build a stronger safety culture with easy-to-use tools that engage your entire workforce in
+                        safety practices and reporting.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3>Streamline Compliance</h3>
+                    <p>Simplify safety documentation and compliance tracking with digital tools designed for heavy
+                        industry requirements.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile-First Approach</h3>
+                    <p>Access safety tools anywhere with our mobile app, enabling real-time reporting and documentation
+                        from the field.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Save Time & Resources</h3>
+                    <p>Eliminate paperwork and manual processes with digital safety management that saves hours of
+                        administrative work.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3>Data-Driven Insights</h3>
+                    <p>Gain valuable insights into your safety performance with analytics and reporting tools that
+                        highlight areas for improvement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RANES Process Section -->
+    <section id="how-it-works" class="ranes-process">
+        <div class="container">
+            <div class="ranes-title">
+                <h2>The R.A.N.E.S. Safety Discount Process</h2>
+                <p>Follow our proven five-step process to qualify for insurance discounts through improved safety
+                    practices.</p>
+            </div>
+            <div class="ranes-grid">
+                <div class="ranes-item">
+                    <div class="ranes-letter">
+                        <img src="https://clockworksafety-public.s3.us-west-2.amazonaws.com/acrisuresafetycom/img/ranes-r.png"
+                            alt="R">
+                    </div>
+                    <div class="ranes-content">
+                        <h3>Regulations & Requirements</h3>
+                        <p><strong>Know what's needed</strong> to qualify for insurance discounts and meet industry
+                            standards.</p>
+                    </div>
+                </div>
+                <div class="ranes-item">
+                    <div class="ranes-letter">
+                        <img src="https://clockworksafety-public.s3.us-west-2.amazonaws.com/acrisuresafetycom/img/ranes-a.png"
+                            alt="A">
+                    </div>
+                    <div class="ranes-content">
+                        <h3>Apply a Safety Program</h3>
+                        <p><strong>Build and implement</strong> a compliant safety system that works for your
+                            organization.</p>
+                    </div>
+                </div>
+                <div class="ranes-item">
+                    <div class="ranes-letter">
+                        <img src="https://clockworksafety-public.s3.us-west-2.amazonaws.com/acrisuresafetycom/img/ranes-n.png"
+                            alt="N">
+                    </div>
+                    <div class="ranes-content">
+                        <h3>Normalize Documentation</h3>
+                        <p><strong>Maintain organized records</strong> that demonstrate your safety compliance efforts.
+                        </p>
+                    </div>
+                </div>
+                <div class="ranes-item">
+                    <div class="ranes-letter">
+                        <img src="https://clockworksafety-public.s3.us-west-2.amazonaws.com/acrisuresafetycom/img/ranes-e.png"
+                            alt="E">
+                    </div>
+                    <div class="ranes-content">
+                        <h3>Engage with Underwriters</h3>
+                        <p><strong>Submit documentation</strong> and communicate effectively with insurance providers.
+                        </p>
+                    </div>
+                </div>
+                <div class="ranes-item">
+                    <div class="ranes-letter">
+                        <img src="https://clockworksafety-public.s3.us-west-2.amazonaws.com/acrisuresafetycom/img/ranes-s.png"
+                            alt="S">
+                    </div>
+                    <div class="ranes-content">
+                        <h3>Secure the Discount</h3>
+                        <p><strong>Reduce your insurance costs</strong> and enjoy the benefits of your safety program.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="ranes-summary">
+                <p>Ready to take your business by the <strong>RANES</strong>? Save time, reduce risk, and lower
+                    insurance costs. Let's get started!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container features-container">
+            <div class="features-content">
+                <h2>Powerful Safety Features for Heavy Industry</h2>
+                <p>Acrisure Safety provides all the tools you need to manage safety compliance in high-risk
+                    environments.</p>
+                <ul class="feature-list">
+                    <li class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-clipboard-check"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h3>Digital Safety Inspections</h3>
+                            <p>Conduct and document safety inspections with customizable checklists tailored to your
+                                industry.</p>
+                        </div>
+                    </li>
+                    <li class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h3>Incident Reporting & Management</h3>
+                            <p>Report incidents in real-time and track investigations, corrective actions, and outcomes.
+                            </p>
+                        </div>
+                    </li>
+                    <li class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-helmet-safety"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h3>Training Management</h3>
+                            <p>Assign, track, and document safety training to ensure compliance with regulatory
+                                requirements.</p>
+                        </div>
+                    </li>
+                    <li class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h3>Document Library</h3>
+                            <p>Store and manage all safety documents in one secure, easily accessible location.</p>
+                        </div>
+                    </li>
+                    <li class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h3>Analytics & Reporting</h3>
+                            <p>Generate comprehensive reports to track safety performance and identify improvement
+                                areas.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="features-image">
+                <img src="https://clockworksafety-public.s3.us-west-2.amazonaws.com/acrisuresafetycom/screen-mobile-dashboard.png"
+                    alt="Acrisure Safety App Features">
+            </div>
+        </div>
+    </section>
+
+    <!-- Broker Partnership Section -->
+    <section id="brokers" class="broker-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>For Insurance Brokers</h2>
+                <p>Strengthen client relationships and improve underwriting outcomes with Acrisure Safety</p>
+            </div>
+            <div class="broker-container">
+                <div class="broker-content">
+                    <h3>Elevate Your Client Services</h3>
+                    <p>As an insurance broker, you're more than just a policy provider—you're a trusted risk management
+                        partner. Acrisure Safety gives you a powerful tool to deliver measurable value to your high-risk
+                        industry clients.</p>
+
+                    <div class="broker-benefits">
+                        <div class="broker-benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <div class="benefit-text">
+                                <h4>Strengthen Client Relationships</h4>
+                                <p>Position yourself as a strategic risk management partner by offering more than just
+                                    insurance—provide a complete safety solution that delivers real ROI.</p>
+                            </div>
+                        </div>
+
+                        <div class="broker-benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-file-contract"></i>
+                            </div>
+                            <div class="benefit-text">
+                                <h4>Improve Underwriting Outcomes</h4>
+                                <p>Submit clean, complete safety documentation to carriers. Better risk profiles lead to
+                                    better rates and terms for your clients.</p>
+                            </div>
+                        </div>
+
+                        <div class="broker-benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-user-check"></i>
+                            </div>
+                            <div class="benefit-text">
+                                <h4>Increase Retention & Referrals</h4>
+                                <p>Clients who see tangible savings and support are more likely to renew and refer.
+                                    Stand out from other brokerages with this value-added service.</p>
+                            </div>
+                        </div>
+
+                        <div class="broker-benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="benefit-text">
+                                <h4>Save Time & Resources</h4>
+                                <p>Spend less time chasing documents or explaining compliance gaps. The app automates
+                                    safety tracking and reporting for efficient renewals.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="broker-cta">
+                        <a href="https://www.ranes.com/support" class="primary-btn" target="_blank">Partner With Us</a>
+                    </div>
+                </div>
+
+                <div class="broker-case-study">
+                    <div class="case-study-card">
+                        <h3>Success Story</h3>
+                        <div class="quote-mark"><i class="fas fa-quote-left"></i></div>
+                        <p class="case-study-text">A construction client used Acrisure Safety to track toolbox talks,
+                            incident reports, and employee training. At renewal, we submitted a clean report showing
+                            zero lost-time incidents and full OSHA compliance. The result? A 15% premium discount and a
+                            very happy client who renewed without shopping around.</p>
+                        <div class="case-study-author">
+                            <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&q=80"
+                                alt="James Wilson">
+                            <div>
+                                <h4>James Wilson</h4>
+                                <p>Senior Broker, Acrisure Partners</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="broker-talking-points">
+                        <h4>Client Conversation Starters</h4>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> "This app helps you qualify for insurance discounts
+                                by proving your safety efforts."</li>
+                            <li><i class="fas fa-check-circle"></i> "We can help you implement a safety program that
+                                meets industry standards—fast."</li>
+                            <li><i class="fas fa-check-circle"></i> "You'll have all your safety documentation organized
+                                and ready for audits or renewals."</li>
+                            <li><i class="fas fa-check-circle"></i> "This is part of our commitment to helping you
+                                reduce risk and lower costs."</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Underwriter Section -->
+    <section id="underwriters" class="underwriter-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>For Underwriters</h2>
+                <p>Make more informed decisions with verified safety data and standardized documentation</p>
+            </div>
+
+            <div class="underwriter-container">
+                <div class="underwriter-visual">
+                    <div class="data-dashboard">
+                        <img src="https://clockworksafety-public.s3.us-west-2.amazonaws.com/acrisuresafetycom/img/safety-plan.jpg"
+                            alt="Acrisure Safety Plan"
+                            style="width: 100%; height: auto; border-radius: var(--border-radius);">
+                    </div>
+                </div>
+
+                <div class="underwriter-content">
+                    <h3>Better Data for Confident Underwriting</h3>
+                    <p>Acrisure Safety provides underwriters with verified safety data, organized documentation, and
+                        standardized compliance reporting—helping you make more informed decisions with greater
+                        confidence.</p>
+
+                    <div class="underwriter-benefits">
+                        <div class="underwriter-benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <div class="benefit-text">
+                                <h4>Improved Risk Visibility</h4>
+                                <p>Access standardized safety data across clients and gain real-time insights into
+                                    safety program implementation and incident tracking.</p>
+                            </div>
+                        </div>
+
+                        <div class="underwriter-benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-tasks"></i>
+                            </div>
+                            <div class="benefit-text">
+                                <h4>Streamlined Submissions & Renewals</h4>
+                                <p>Receive complete, organized documentation from brokers and clients, reducing time
+                                    spent on follow-ups and clarification requests.</p>
+                            </div>
+                        </div>
+
+                        <div class="underwriter-benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                            <div class="benefit-text">
+                                <h4>More Accurate Risk Assessment</h4>
+                                <p>Evaluate risk based on actual safety behavior and compliance—not just self-reported
+                                    data—and identify high-performing clients who qualify for better pricing.</p>
+                            </div>
+                        </div>
+
+                        <div class="underwriter-benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="benefit-text">
+                                <h4>Lower Loss Ratios</h4>
+                                <p>Clients using the app are more likely to follow safety protocols and reduce claims,
+                                    leading to improved portfolio performance.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="underwriter-quote">
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p>"This app gives us the verified data we need to underwrite with confidence. We can now
+                            distinguish between clients who talk about safety and those who actually practice it."</p>
+                        <div class="quote-author">
+                            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&q=80"
+                                alt="Jennifer Martinez">
+                            <div>
+                                <h5>Jennifer Martinez</h5>
+                                <p>Senior Underwriter, Commercial Risk</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Customers Say</h2>
+                <p>Hear from business owners who have successfully seen an improved company culture by using Acrisure
+                    Safety.
+                </p>
+            </div>
+            <div class="testimonials-slider">
+                <div class="testimonial-slides">
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-quote">The messaging and training features in the Acrisure Safety:
+                                Powered By Ranes app are game-changers. We can now see who has viewed notifications and
+                                completed their trainings. No more digging through files for answers—everything we need
+                                is clearly visible in the app!</p>
+                            <div class="testimonial-author">
+                                <div class="author-image">
+                                    <img src="https://clockworksafety-public.s3.us-west-2.amazonaws.com/acrisuresafetycom/img/testimonial-dan-ross.jpg"
+                                        alt="Dan Ross">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Dan Ross</h4>
+                                    <p>President, Precision Contracting</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-quote">The Acrisure Safety app empowers the employee, instead of just
+                                calling me, they can just say it right there in the app and they have no excuse not to
+                                report something.</p>
+                            <div class="testimonial-author">
+                                <div class="author-image">
+                                    <img src="https://clockworksafety-public.s3.us-west-2.amazonaws.com/acrisuresafetycom/img/testimonial-kevin-huffaker.jpg"
+                                        alt="Kevan Huffaker">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Kevan Huffaker</h4>
+                                    <p>President, KJ Brothers</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-nav">
+                    <div class="testimonial-dot active"></div>
+                    <div class="testimonial-dot"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Reduce Your Insurance Costs?</h2>
+                <p>Join hundreds of high-risk industry businesses that are saving money and improving safety with
+                    Acrisure Safety.</p>
+                <a href="https://www.ranes.com/acrisure/" class="primary-btn">Get Started Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="https://acrisuresafety.com/_assets/media/09460b5e1028fe8e1a374bef8c459ed3.png"
+                            alt="Acrisure Safety Logo">
+                    </div>
+                    <p>Acrisure Safety is a dual platform workplace smart tool designed to save both time & money while
+                        empowering your workforce and combatting insurance premiums.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="https://www.acrisuresafety.com/">Home</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#brokers">Brokers</a></li>
+                        <li><a href="#underwriters">Underwriters</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="https://portal.ranes.com/">Admin Portal</a></li>
+                        <li><a href="https://app.ranes.com/">Employee App</a></li>
+                        <li><a href="https://www.ranes.com/help-center/">Help Center</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Support</h3>
+                    <p></p>
+                    <p><i class="fas fa-headset"></i> https://www.ranes.com/support/</p>
+                    <p><i class="fas fa-envelope"></i> success@ranes.com</p>
+
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> Acrisure Safety. All rights reserved.</p>
+
+                <div class="footer-bottom-links">
+                    <a href="https://www.ranes.com/website-policies">Website Policies</a>
+                    <a href="https://www.ranes.com/privacy-policy">Privacy Policy</a>
+                    <a href="https://www.ranes.com/terms-and-conditions">Terms of Service</a>
+                    <a href="https://www.ranes.com/cookie-policy">Cookie Policy</a>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <!-- Video Modal -->
+    <div class="video-modal" id="demoVideo">
+        <button class="close-modal" aria-label="Close video">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="video-container">
+            <div class="video-wrapper">
+                <video controls controlslist="nodownload" preload="metadata"
+                    poster="https://clockworksafety-public.s3.us-west-2.amazonaws.com/acrisuresafetycom/MultilingualTrainingV-1-mov-image-scaled.jpg">
+                    <source
+                        src="https://clockworksafety-public.s3.us-west-2.amazonaws.com/acrisuresafetycom/vid/acrisuresafety-limitess-intro.mp4"
+                        type="video/mp4">
+                    <source
+                        src="https://clockworksafety-public.s3.us-west-2.amazonaws.com/acrisuresafetycom/vid/acrisuresafety-limitess-intro.mov"
+                        type="video/quicktime">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+
+            // Scroll to Top Button
+            const scrollToTopBtn = document.querySelector('.scroll-to-top');
+
+            // Show/hide scroll-to-top button based on scroll position
+            function toggleScrollToTopButton() {
+                if (window.pageYOffset > window.innerHeight) {
+                    scrollToTopBtn.classList.add('visible');
+                } else {
+                    scrollToTopBtn.classList.remove('visible');
+                }
+            }
+
+            // Add scroll event listener
+            window.addEventListener('scroll', toggleScrollToTopButton);
+
+            // Scroll to top when button is clicked
+            scrollToTopBtn.addEventListener('click', function () {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Get all navigation links
+            const navLinks = document.querySelectorAll('.nav-links a');
+
+            // Add click event to each link
+            navLinks.forEach(link => {
+                if (link.getAttribute('href').startsWith('#')) {
+                    link.addEventListener('click', function (e) {
+                        e.preventDefault();
+
+                        // Get the target section
+                        const targetId = this.getAttribute('href');
+                        const targetSection = document.querySelector(targetId);
+
+                        if (targetSection) {
+                            // Scroll to the section
+                            targetSection.scrollIntoView({
+                                behavior: 'smooth'
+                            });
+
+                            // Close mobile menu if open
+                            if (window.innerWidth <= 768) {
+                                document.querySelector('.nav-links').classList.remove('show');
+                            }
+                        }
+                    });
+                }
+            });
+
+            // Handle mobile menu toggle
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navLinksMenu = document.querySelector('.nav-links');
+
+            mobileMenuBtn.addEventListener('click', () => {
+                navLinksMenu.classList.toggle('show');
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!mobileMenuBtn.contains(e.target) && !navLinksMenu.contains(e.target)) {
+                    navLinksMenu.classList.remove('show');
+                }
+            });
+
+            // Close mobile menu when window is resized above mobile breakpoint
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 768) {
+                    navLinksMenu.classList.remove('show');
+                }
+            });
+
+            // Testimonial Slider
+            const testimonialSlides = document.querySelector('.testimonial-slides');
+            const testimonialDots = document.querySelectorAll('.testimonial-dot');
+            let currentSlide = 0;
+
+            function showSlide(index) {
+                testimonialSlides.style.transform = `translateX(-${index * 100}%)`;
+
+                // Update active dot
+                testimonialDots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === index);
+                });
+
+                currentSlide = index;
+            }
+
+            // Add click event to dots
+            testimonialDots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    showSlide(index);
+                });
+            });
+
+            // Auto slide every 5 seconds
+            setInterval(() => {
+                currentSlide = (currentSlide + 1) % testimonialDots.length;
+                showSlide(currentSlide);
+            }, 5000);
+
+            // Video Modal Functionality
+            const videoModal = document.getElementById('demoVideo');
+            const videoElement = videoModal.querySelector('video');
+            const closeButton = videoModal.querySelector('.close-modal');
+            const watchDemoButton = document.querySelector('.secondary-btn');
+
+            function openVideoModal() {
+                videoModal.classList.add('active');
+                // Load the video
+                videoElement.load();
+                // Try to play the video
+                const playPromise = videoElement.play();
+
+                if (playPromise !== undefined) {
+                    playPromise.then(_ => {
+                        // Video playback started successfully
+                    })
+                        .catch(error => {
+                            console.log("Auto-play prevented by browser");
+                            // Show play button or let user initiate playback
+                        });
+                }
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+            }
+
+            function closeVideoModal() {
+                videoModal.classList.remove('active');
+                videoElement.pause();
+                // Reset video position
+                videoElement.currentTime = 0;
+                document.body.style.overflow = ''; // Restore scrolling
+            }
+
+            // Event Listeners
+            watchDemoButton.addEventListener('click', function (e) {
+                e.preventDefault();
+                openVideoModal();
+            });
+
+            // Handle video errors
+            videoElement.addEventListener('error', function (e) {
+                console.error("Error loading video:", videoElement.error);
+            });
+
+            closeButton.addEventListener('click', closeVideoModal);
+
+            // Close modal when clicking outside the video
+            videoModal.addEventListener('click', function (e) {
+                if (e.target === videoModal) {
+                    closeVideoModal();
+                }
+            });
+
+            // Close modal with Escape key
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && videoModal.classList.contains('active')) {
+                    closeVideoModal();
+                }
+            });
+        });
+    </script>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" aria-label="Scroll to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+</body>
+
+</html>
