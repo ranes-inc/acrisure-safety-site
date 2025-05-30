@@ -486,7 +486,7 @@
 
         .features-container {
             display: flex;
-            align-items: center;
+            /* align-items: center; */
             gap: 60px;
         }
 
@@ -538,6 +538,7 @@
         }
 
         .features-image {
+            margin-top: 80px;
             flex: 1;
             text-align: center;
         }
@@ -1573,8 +1574,8 @@
                     <img src="https://clockworksafety-public.s3.us-west-2.amazonaws.com/acrisuresafetycom/img/cowboy-ranes.png"
                         alt="Safety App in Action" class="hero-image">
                 </div>
-
-                <div class="hero-image-wrapper" data-image="2" style="max-width: 400px;">
+                <!--
+                       <div class="hero-image-wrapper" data-image="2" style="max-width: 400px;">
                     <img style="border-radius: 12px;border: 4px solid #333;"
                         src="https://clockworksafety-public.s3.us-west-2.amazonaws.com/acrisuresafetycom/img/hero-alt-2.jpg"
                         alt="Safety App in Action" class="hero-image">
@@ -1584,6 +1585,7 @@
                         src="https://clockworksafety-public.s3.us-west-2.amazonaws.com/acrisuresafetycom/img/hero-alt-3.jpg"
                         alt="Safety App in Action" class="hero-image">
                 </div>
+-->
                 <div class="hero-image-wrapper" data-image="4" style="max-width: 400px;">
                     <img style="border-radius: 12px;border: 4px solid #333;"
                         src="https://clockworksafety-public.s3.us-west-2.amazonaws.com/acrisuresafetycom/img/hero-alt-4.jpg"
@@ -1727,7 +1729,7 @@
     <section class="features" id="features">
         <div class="container features-container">
             <div class="features-content">
-                <h2>Powerful Safety Features for Heavy Industry</h2>
+                <h2>Powerful Features & Tools</h2>
                 <p>Acrisure Safety provides all the tools you need to manage safety compliance in high-risk
                     environments.</p>
                 <ul class="feature-list">
@@ -1736,9 +1738,24 @@
                             <i class="fas fa-clipboard-check"></i>
                         </div>
                         <div class="feature-text">
-                            <h3>Digital Safety Inspections</h3>
-                            <p>Conduct and document safety inspections with customizable checklists tailored to your
-                                industry.</p>
+                            <h3>Safety Planner & Inspection Reporting</h3>
+                            <p>Streamline your safety planning and inspection process with our Safety Planner. Capture
+                                site conditions through photos, document critical details, and receive AI-assisted
+                                analysis for creating targeted safety plans.</p>
+                            <ul style="list-style: none; margin-top: 10px;">
+                                <li><i class="fas fa-check"
+                                        style="color: var(--acrisure-gold); margin-right: 8px;"></i>Analyzes worksite
+                                    conditions by providing photos and details</li>
+                                <li><i class="fas fa-check"
+                                        style="color: var(--acrisure-gold); margin-right: 8px;"></i>Creates customized
+                                    safety reports and plans</li>
+                                <li><i class="fas fa-check"
+                                        style="color: var(--acrisure-gold); margin-right: 8px;"></i>Enables photo-based
+                                    documentation and validation</li>
+                                <li><i class="fas fa-check"
+                                        style="color: var(--acrisure-gold); margin-right: 8px;"></i>Tracks inspection
+                                    history and provides a history of your safety plans</li>
+                            </ul>
                         </div>
                     </li>
                     <li class="feature-item">
@@ -1746,9 +1763,31 @@
                             <i class="fas fa-exclamation-triangle"></i>
                         </div>
                         <div class="feature-text">
-                            <h3>Incident Reporting & Management</h3>
-                            <p>Report incidents in real-time and track investigations, corrective actions, and outcomes.
+                            <h3>Log-It: Incident Reporting & Worksite Snapshots</h3>
+                            <p>Document worksite conditions and report safety incidents in real-time with our powerful
+                                Log-It system. Capture photos, add detailed notes, and instantly communicate concerns or
+                                circumstances to your team.
                             </p>
+                            <ul style="list-style: none; margin-top: 10px;">
+                                <li><i class="fas fa-check"
+                                        style="color: var(--acrisure-gold); margin-right: 8px;"></i>Real-time worksite
+                                    documentation with photos</li>
+                                <li><i class="fas fa-check"
+                                        style="color: var(--acrisure-gold); margin-right: 8px;"></i>Instant
+                                    communication of site conditions</li>
+                                <li><i class="fas fa-check"
+                                        style="color: var(--acrisure-gold); margin-right: 8px;"></i>Detailed incident
+                                    reporting & tracking</li>
+                                <li><i class="fas fa-check"
+                                        style="color: var(--acrisure-gold); margin-right: 8px;"></i>Investigation &
+                                    corrective action management</li>
+                                <li><i class="fas fa-check"
+                                        style="color: var(--acrisure-gold); margin-right: 8px;"></i>Historical site
+                                    condition records</li>
+                                <li><i class="fas fa-check"
+                                        style="color: var(--acrisure-gold); margin-right: 8px;"></i>OSHA compliance
+                                    documentation</li>
+                            </ul>
                         </div>
                     </li>
                     <li class="feature-item">
@@ -1757,27 +1796,161 @@
                         </div>
                         <div class="feature-text">
                             <h3>Training Management</h3>
-                            <p>Assign, track, and document safety training to ensure compliance with regulatory
-                                requirements.</p>
+                            <p>Deliver, track, and certify safety training directly from our platform. Customizable
+                                training that can be assigned with tracking and certifications.</p>
+                            <ul style="list-style: none; margin-top: 10px;">
+                                <li><i class="fas fa-check"
+                                        style="color: var(--acrisure-gold); margin-right: 8px;"></i>On-demand and
+                                    webinar formats</li>
+                                <li><i class="fas fa-check"
+                                        style="color: var(--acrisure-gold); margin-right: 8px;"></i>Mobile-friendly
+                                    training videos and materials</li>
+                                <li><i class="fas fa-check"
+                                        style="color: var(--acrisure-gold); margin-right: 8px;"></i>Built-in testing and
+                                    certification tracking</li>
+                                <li><i class="fas fa-check"
+                                        style="color: var(--acrisure-gold); margin-right: 8px;"></i>Safety toolbox talks
+                                    and technical training</li>
+                                <li><i class="fas fa-check"
+                                        style="color: var(--acrisure-gold); margin-right: 8px;"></i>Multi-language
+                                    support (English/Spanish)</li>
+                            </ul>
                         </div>
                     </li>
                     <li class="feature-item">
                         <div class="feature-icon">
-                            <i class="fas fa-file-alt"></i>
+                            <i class="fas fa-folder-open"></i>
                         </div>
                         <div class="feature-text">
-                            <h3>Document Library</h3>
-                            <p>Store and manage all safety documents in one secure, easily accessible location.</p>
+                            <h3>Document Library & Management</h3>
+                            <p>Access and manage documentation in one centralized, secure location. Our
+                                Document Library provides mobile-friendly access to important documents, reports,
+                                and training materials with powerful organization and control features.</p>
+                            <ul style="list-style: none; margin-top: 10px;">
+                                <li><i class="fas fa-check"
+                                        style="color: var(--acrisure-gold); margin-right: 8px;"></i>Centralized document
+                                    storage and management</li>
+                                <li><i class="fas fa-check"
+                                        style="color: var(--acrisure-gold); margin-right: 8px;"></i>Granular access
+                                    control and permissions</li>
+                                <li><i class="fas fa-check"
+                                        style="color: var(--acrisure-gold); margin-right: 8px;"></i>Searchable documents
+                                    and focused visibility for employees</li>
+                                <li><i class="fas fa-check"
+                                        style="color: var(--acrisure-gold); margin-right: 8px;"></i>Attachable to
+                                    Acrisure Safety's other tools</li>
+
+                            </ul>
                         </div>
                     </li>
                     <li class="feature-item">
                         <div class="feature-icon">
-                            <i class="fas fa-chart-bar"></i>
+                            <i class="fas fa-file-text"></i>
                         </div>
                         <div class="feature-text">
-                            <h3>Analytics & Reporting</h3>
-                            <p>Generate comprehensive reports to track safety performance and identify improvement
-                                areas.</p>
+                            <h3>Forms Builder & Management</h3>
+                            <p>Create, assign, and track custom forms with our intuitive drag-and-drop builder. From
+                                safety inspections to equipment checks, manage all your form needs in one place.</p>
+                            <ul style="list-style: none; margin-top: 10px;">
+                                <li><i class="fas fa-check"
+                                        style="color: var(--acrisure-gold); margin-right: 8px;"></i>Drag-and-drop form
+                                    builder with rich components</li>
+                                <li><i class="fas fa-check"
+                                        style="color: var(--acrisure-gold); margin-right: 8px;"></i>Dual system: a
+                                    Library for general access and Assignments</li>
+                                <li><i class="fas fa-check"
+                                        style="color: var(--acrisure-gold); margin-right: 8px;"></i>Support for text,
+                                    images, videos, signatures, and file uploads</li>
+                                <li><i class="fas fa-check"
+                                        style="color: var(--acrisure-gold); margin-right: 8px;"></i>Track submission
+                                    status and manage approvals</li>
+                                <li><i class="fas fa-check"
+                                        style="color: var(--acrisure-gold); margin-right: 8px;"></i>Perfect for safety
+                                    meetings, inspections, and compliance documentation</li>
+                            </ul>
+                            <div
+                                style="background: var(--acrisure-blue-gray); padding: 15px; border-radius: var(--border-radius); margin-top: 15px;">
+                                <h4 style="color: var(--acrisure-dark-blue); margin-bottom: 10px;">Common Form Types:
+                                </h4>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                                    <div>
+                                        <ul style="list-style: none;">
+                                            <li><i class="fas fa-file-alt"
+                                                    style="color: var(--acrisure-gold); margin-right: 5px;"></i>Safety
+                                                Meeting Reports</li>
+                                            <li><i class="fas fa-file-medical"
+                                                    style="color: var(--acrisure-gold); margin-right: 5px;"></i>Equipment
+                                                Inspections</li>
+                                            <li><i class="fas fa-file-signature"
+                                                    style="color: var(--acrisure-gold); margin-right: 5px;"></i>Jobsite
+                                                Safety Checks</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <ul style="list-style: none;">
+                                            <li><i class="fas fa-file-contract"
+                                                    style="color: var(--acrisure-gold); margin-right: 5px;"></i>Vehicle
+                                                Inspections</li>
+                                            <li><i class="fas fa-file-invoice"
+                                                    style="color: var(--acrisure-gold); margin-right: 5px;"></i>AI
+                                                Safety Analysis</li>
+                                            <li><i class="fas fa-file-upload"
+                                                    style="color: var(--acrisure-gold); margin-right: 5px;"></i>File
+                                                Upload Forms</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h3>Timeclock Management</h3>
+                            <p>Track and manage employee time with precision using our comprehensive timeclock system.
+                                Features location tracking, detailed entry management, and streamlined approval
+                                workflows.</p>
+                            <ul style="list-style: none; margin-top: 10px;">
+                                <li><i class="fas fa-check"
+                                        style="color: var(--acrisure-gold); margin-right: 8px;"></i>Geolocation tracking
+                                    for clock-ins/outs</li>
+                                <li><i class="fas fa-check"
+                                        style="color: var(--acrisure-gold); margin-right: 8px;"></i>Project cost code
+                                    integration</li>
+                                <li><i class="fas fa-check"
+                                        style="color: var(--acrisure-gold); margin-right: 8px;"></i>Visual map view of
+                                    employee locations</li>
+                                <li><i class="fas fa-check"
+                                        style="color: var(--acrisure-gold); margin-right: 8px;"></i>Detailed entry
+                                    management and approval system</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h3>Messaging System</h3>
+                            <p>Stay connected with your team through our centralized communication system. Send direct
+                                messages, company-wide announcements, and receive important updates through both the
+                                Employee App and Admin Portal.</p>
+                            <ul style="list-style: none; margin-top: 10px;">
+                                <li><i class="fas fa-check"
+                                        style="color: var(--acrisure-gold); margin-right: 8px;"></i>Direct messaging
+                                    between users and company-wide announcements</li>
+                                <li><i class="fas fa-check"
+                                        style="color: var(--acrisure-gold); margin-right: 8px;"></i>Rich text editor
+                                    with formatting options</li>
+                                <li><i class="fas fa-check"
+                                        style="color: var(--acrisure-gold); margin-right: 8px;"></i>Push notifications
+                                    for new messages</li>
+                                <li><i class="fas fa-check"
+                                        style="color: var(--acrisure-gold); margin-right: 8px;"></i>Organized inbox with
+                                    read status tracking</li>
+                            </ul>
                         </div>
                     </li>
                 </ul>
