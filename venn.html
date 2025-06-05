@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acrisure Safety - Relationship Venn Diagram</title>
+    <style>
+        /* Add custom font if needed */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@800&display=swap');
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .venn-wrap {
+            width: 100%;
+            background: linear-gradient(to bottom, #36749D 30%, #0b3d6c 100%);
+        }
+
+        .venn-container {
+            position: relative;
+            height: 800px;
+            width: 800px;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            background: linear-gradient(to bottom, #36749D 30%, #0b3d6c 100%);
+            margin: 0 auto;
+
+        }
+
+        .circle {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            font-size: 24px;
+            opacity: 0.95;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            box-shadow: inset 0 -8px 12px rgba(0, 0, 0, 0.2),
+                inset 0 8px 12px rgba(255, 255, 255, 0.2),
+                0 8px 16px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            cursor: pointer;
+            will-change: filter, box-shadow;
+        }
+
+        .circle:hover {
+            filter: brightness(1.2);
+            box-shadow: inset 0 -8px 12px rgba(0, 0, 0, 0.2),
+                inset 0 8px 12px rgba(255, 255, 255, 0.3),
+                0 0 30px rgba(255, 255, 255, 0.2),
+                0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .circle-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            text-align: left;
+            padding: 40px;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .circle-title {
+            font-size: 25px;
+            margin-bottom: 20px;
+            transition: all 0.5s ease;
+            align-self: flex-start;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            text-transform: none;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .circle-description {
+            font-size: 16px;
+            line-height: 1.5;
+            opacity: 0;
+            max-width: 90%;
+            margin: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+            display: none;
+            text-align: left;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        #company-circle {
+            background: linear-gradient(145deg,
+                    #004080 0%,
+                    #002a4e 50%,
+                    #001f3a 100%);
+            left: 250px;
+            top: 110px;
+            z-index: 3;
+        }
+
+        #broker-circle {
+            background: linear-gradient(145deg,
+                    #0077ee 0%,
+                    #0066cc 50%,
+                    #004c99 100%);
+            left: 120px;
+            top: 340px;
+            z-index: 2;
+        }
+
+        #underwriter-circle {
+            background: linear-gradient(145deg,
+                    #4db3ff 0%,
+                    #3399ff 50%,
+                    #2680d9 100%);
+            left: 380px;
+            top: 340px;
+            z-index: 1;
+        }
+
+        .center-icon {
+            position: absolute;
+            left: 50%;
+            top: 48%;
+            transform: translate(-50%, -50%);
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at 30% 30%,
+                    rgba(1, 75, 109, 0.6),
+                    rgba(0, 0, 0, 0.4));
+            box-shadow: inset 0 4px 8px rgba(255, 255, 255, 0.1),
+                inset 0 -4px 8px rgba(0, 0, 0, 0.2),
+                0 0 30px rgba(0, 0, 0, 0.2),
+                0 0 60px rgba(255, 255, 255, 0.1);
+            z-index: 6;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transform-style: preserve-3d;
+            transform: translate(-50%, -50%) translateZ(0);
+        }
+
+        .center-icon img {
+            width: 85%;
+            height: 85%;
+            object-fit: contain;
+            filter: brightness(1.1) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+        }
+
+        .label {
+            position: absolute;
+            font-size: 16px;
+            color: #333;
+            font-weight: 500;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            text-align: left;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            z-index: 5;
+            transform-origin: top left;
+        }
+
+        .label:hover {
+            z-index: 1000;
+        }
+
+        .label-text {
+            position: relative;
+            z-index: 2;
+        }
+
+        .label-title {
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 10px;
+            color: #014B6D;
+        }
+
+        .label-subtitle {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .label-description {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #444;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .label:hover .label-description {
+            max-height: 500px;
+            opacity: 1;
+            margin-top: 15px;
+        }
+
+        /* Label Positions */
+        #company-label {
+            right: auto;
+            left: 585px;
+            top: 90px;
+        }
+
+        #broker-label {
+            left: 80px;
+            top: 660px;
+        }
+
+        #underwriter-label {
+            right: 80px;
+            top: 660px;
+        }
+
+        #center-label {
+            position: absolute;
+            left: -75px;
+            top: 230px;
+            width: 250px;
+            text-align: left;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            z-index: 5;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        #center-label:hover,
+        .center-icon:hover~#center-label {
+            width: 400px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+        }
+
+        #center-label .label-description {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #444;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        #center-label:hover .label-description,
+        .center-icon:hover~#center-label .label-description {
+            max-height: 500px;
+            opacity: 1;
+            margin-top: 15px;
+        }
+
+        .arrows {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        /* Company circle hover triggers company label */
+        #company-circle:hover~#company-label,
+        #company-label:hover {
+            width: 400px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+        }
+
+        /* Broker circle hover triggers broker label */
+        #broker-circle:hover~#broker-label,
+        #broker-label:hover {
+            width: 400px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+        }
+
+        /* Underwriter circle hover triggers underwriter label */
+        #underwriter-circle:hover~#underwriter-label,
+        #underwriter-label:hover {
+            width: 400px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+        }
+
+        /* Center icon hover triggers center label */
+        .center-icon:hover~#center-label,
+        #center-label:hover {
+            width: 360px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+        }
+
+        /* Show description when label is expanded */
+        #company-circle:hover~#company-label .label-description,
+        #broker-circle:hover~#broker-label .label-description,
+        #underwriter-circle:hover~#underwriter-label .label-description,
+        .center-icon:hover~#center-label .label-description,
+        .label:hover .label-description {
+            max-height: 500px;
+            opacity: 1;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="venn-wrap">
+
+        <div class="venn-container">
+            <svg class="arrows" viewBox="0 0 800 800">
+                <!-- Company Arrow -->
+                <path d="M600 125 C550 125, 520 125, 400 125" stroke="#666" stroke-width="2" fill="none" />
+
+                <!-- Broker Arrow -->
+                <path d="M180 660 L180 380" stroke="#666" stroke-width="2" fill="none" />
+
+                <!-- Underwriter Arrow -->
+                <path d="M620 660 L620 380" stroke="#666" stroke-width="2" fill="none" />
+
+                <!-- Arrow Heads -->
+                <path d="M400 125 L410 120 L410 130 Z" fill="#666" />
+                <path d="M180 380 L175 390 L185 390 Z" fill="#666" />
+                <path d="M620 380 L615 390 L625 390 Z" fill="#666" />
+            </svg>
+
+            <div id="company-circle" class="circle">
+                <div class="circle-content">
+                    <div class="circle-title">COMPANY</div>
+                    <div class="circle-description">
+                        High-risk industry businesses seeking comprehensive safety solutions and insurance coverage. Our
+                        platform helps companies:
+                        <br><br>
+                        • Implement effective safety programs<br>
+                        • Document compliance efforts<br>
+                        • Reduce workplace incidents<br>
+                        • Qualify for insurance discounts<br>
+                        • Streamline safety operations<br>
+                        • Protect their workforce
+                    </div>
+                </div>
+            </div>
+
+            <div id="broker-circle" class="circle">
+                <div class="circle-content">
+                    <div class="circle-title">BROKER</div>
+                    <div class="circle-description">
+                        Insurance professionals partnering with companies to provide coverage and risk management.
+                        Through
+                        our platform, brokers can:
+                        <br><br>
+                        • Strengthen client relationships<br>
+                        • Improve underwriting outcomes<br>
+                        • Access verified safety data<br>
+                        • Streamline renewal processes<br>
+                        • Demonstrate added value<br>
+                        • Increase client retention
+                    </div>
+                </div>
+            </div>
+
+            <div id="underwriter-circle" class="circle">
+                <div class="circle-content">
+                    <div class="circle-title">UNDERWRITER</div>
+                    <div class="circle-description">
+                        Risk assessment professionals who evaluate and price insurance coverage. Our platform enables
+                        underwriters to:
+                        <br><br>
+                        • Access verified safety metrics<br>
+                        • Make data-driven decisions<br>
+                        • Track compliance efforts<br>
+                        • Monitor risk improvements<br>
+                        • Validate discount eligibility<br>
+                        • Reduce loss ratios
+                    </div>
+                </div>
+            </div>
+
+            <div class="center-icon">
+                <img src="https://clockworksafety-public.s3.us-west-2.amazonaws.com/acrisuresafetycom/img/icon-acrisure-light.png"
+                    alt="Acrisure Safety Icon">
+            </div>
+
+            <!-- Labels with descriptions -->
+            <div id="company-label" class="label">
+                <div class="label-text">
+                    <div class="label-title">High-Risk Industry Company</div>
+                    <div class="label-subtitle">Seeking insurance & safety solutions</div>
+                    <div class="label-description">
+                        High-risk industry businesses seeking comprehensive safety solutions and insurance coverage. Our
+                        platform helps companies:
+                        <br><br>
+                        • Implement effective safety programs<br>
+                        • Document compliance efforts<br>
+                        • Reduce workplace incidents<br>
+                        • Qualify for insurance discounts<br>
+                        • Streamline safety operations<br>
+                        • Protect their workforce
+                    </div>
+                </div>
+            </div>
+
+            <div id="broker-label" class="label">
+                <div class="label-text">
+                    <div class="label-title">Insurance Broker</div>
+                    <div class="label-subtitle">Provides coverage & risk management</div>
+                    <div class="label-description">
+                        Insurance professionals partnering with companies to provide coverage and risk management.
+                        Through
+                        our platform, brokers can:
+                        <br><br>
+                        • Strengthen client relationships<br>
+                        • Improve underwriting outcomes<br>
+                        • Access verified safety data<br>
+                        • Streamline renewal processes<br>
+                        • Demonstrate added value<br>
+                        • Increase client retention
+                    </div>
+                </div>
+            </div>
+
+            <div id="underwriter-label" class="label">
+                <div class="label-text">
+                    <div class="label-title">Insurance Underwriter</div>
+                    <div class="label-subtitle">Assesses risk & sets premiums</div>
+                    <div class="label-description">
+                        Risk assessment professionals who evaluate and price insurance coverage. Our platform enables
+                        underwriters to:
+                        <br><br>
+                        • Access verified safety metrics<br>
+                        • Make data-driven decisions<br>
+                        • Track compliance efforts<br>
+                        • Monitor risk improvements<br>
+                        • Validate discount eligibility<br>
+                        • Reduce loss ratios
+                    </div>
+                </div>
+            </div>
+
+            <div id="center-label" class="label">
+                <div class="label-text">
+                    <div class="label-title">Acrisure Safety</div>
+                    <div class="label-subtitle">Connecting Safety & Insurance</div>
+                    <div class="label-description">
+                        Acrisure Safety serves as the central hub connecting companies, brokers, and underwriters in a
+                        seamless ecosystem:
+                        <br><br>
+                        • Provides real-time safety data and analytics<br>
+                        • Facilitates transparent communication between all parties<br>
+                        • Automates compliance documentation and reporting<br>
+                        • Streamlines the insurance application process<br>
+                        • Enables data-driven risk assessment<br>
+                        • Creates a feedback loop for continuous improvement<br>
+                        • Helps reduce incidents and lower premiums
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

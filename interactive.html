@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Acrisure Safety Ecosystem</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f4f7fa;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #003366;
+        }
+
+        .infographic-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .role-card {
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            padding: 20px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .role-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .role-title {
+            font-size: 1.5em;
+            color: #005a9c;
+            margin-bottom: 10px;
+        }
+
+        .role-icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .role-description {
+            display: none;
+            margin-top: 10px;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+
+        .role-card.active .role-description {
+            display: block;
+        }
+
+        .feature-search-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        #feature-search {
+            flex: 1;
+            padding: 0.75rem;
+            font-size: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+        }
+
+        #search-button {
+            padding: 0.75rem 1.5rem;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .search-result {
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #fff;
+        }
+
+        .related-features {
+            margin-top: 0.5rem;
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .related-feature-tag {
+            background-color: #e9ecef;
+            padding: 0.25rem 0.5rem;
+            border-radius: 3px;
+            font-size: 0.875rem;
+        }
+
+        .learn-more {
+            display: inline-block;
+            margin-top: 1rem;
+            color: #007bff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="feature-search-container">
+        <div class="search-box">
+            <input type="text" id="feature-search"
+                placeholder="Enter broker recommendations or your company requirements..." />
+            <button id="search-button">Search</button>
+        </div>
+        <div id="search-results" class="results-container"></div>
+    </div>
+
+
+    <script>
+        // Define a knowledge base of features and their related terms/phrases
+        const featureDatabase = {
+            'safety_planner': {
+                name: 'Safety Planner & Inspection Reporting',
+                description: 'Create and manage comprehensive safety plans with AI-assisted analysis, photo documentation, and customized reporting.',
+                keywords: [
+                    'safety plan', 'inspection', 'site analysis', 'documentation', 'photos',
+                    'template', 'customize', 'worksite conditions', 'risk assessment',
+                    'compliance requirements', 'audit preparation', 'site safety',
+                    'OSHA compliance', 'risk management', 'safety program',
+                    'insurance requirements', 'underwriting documentation'
+                ],
+                relatedFeatures: ['document_manager', 'mobile_app', 'forms_builder'],
+                url: '/features/safety-planner'
+            },
+            'incident_reporter': {
+                name: 'Log-It: Incident Reporting & Worksite Snapshots',
+                description: 'Document worksite conditions and report safety incidents in real-time with photo evidence and instant team communication.',
+                keywords: [
+                    'incident reporting', 'accident reports', 'near miss', 'injury tracking',
+                    'OSHA documentation', 'investigation', 'corrective actions',
+                    'claims reduction', 'risk mitigation', 'incident prevention',
+                    'safety record', 'loss prevention', 'worksite documentation',
+                    'real-time reporting', 'photo evidence', 'incident tracking'
+                ],
+                relatedFeatures: ['analytics_dashboard', 'notification_system', 'mobile_app'],
+                url: '/features/incident-reporter'
+            },
+            'training_manager': {
+                name: 'Training Management',
+                description: 'Deliver, track, and certify safety training with mobile-friendly content, built-in testing, and certification tracking in English and Spanish.',
+                keywords: [
+                    'safety training', 'certification tracking', 'compliance training',
+                    'employee education', 'toolbox talks', 'skill verification',
+                    'bilingual training', 'OSHA training', 'continuing education',
+                    'training records', 'competency tracking', 'safety meetings',
+                    'workforce development', 'training compliance', 'certification management'
+                ],
+                relatedFeatures: ['document_manager', 'analytics_dashboard', 'mobile_app'],
+                url: '/features/training-manager'
+            },
+            'document_manager': {
+                name: 'Document Library & Management',
+                description: 'Centralized, secure document storage with mobile access, granular permissions, and powerful organization features.',
+                keywords: [
+                    'document storage', 'policy management', 'safety documentation',
+                    'compliance records', 'audit trail', 'document control',
+                    'record keeping', 'file organization', 'safety manuals',
+                    'policy distribution', 'document access', 'paperless system',
+                    'regulatory compliance', 'documentation requirements'
+                ],
+                relatedFeatures: ['mobile_app', 'forms_builder', 'training_manager'],
+                url: '/features/document-manager'
+            },
+            'forms_builder': {
+                name: 'Forms Builder & Management',
+                description: 'Create custom forms with drag-and-drop functionality for safety inspections, equipment checks, and compliance documentation.',
+                keywords: [
+                    'custom forms', 'digital forms', 'inspection forms',
+                    'safety checklists', 'equipment inspections', 'compliance forms',
+                    'audit forms', 'safety meetings', 'documentation templates',
+                    'mobile forms', 'paperless workflow', 'form automation',
+                    'data collection', 'field reporting'
+                ],
+                relatedFeatures: ['document_manager', 'mobile_app', 'safety_planner'],
+                url: '/features/forms-builder'
+            },
+            'timeclock': {
+                name: 'Timeclock Management',
+                description: 'Track employee time with GPS location verification, project cost codes, and streamlined approval workflows.',
+                keywords: [
+                    'time tracking', 'attendance', 'GPS verification',
+                    'project tracking', 'labor management', 'workforce monitoring',
+                    'site presence', 'employee location', 'work hours',
+                    'payroll integration', 'job costing', 'productivity tracking'
+                ],
+                relatedFeatures: ['mobile_app', 'analytics_dashboard'],
+                url: '/features/timeclock'
+            },
+            'messaging_system': {
+                name: 'Messaging System',
+                description: 'Centralized communication platform for direct messages, company announcements, and important updates with push notifications.',
+                keywords: [
+                    'communication', 'team messaging', 'safety alerts',
+                    'announcements', 'emergency notifications', 'instant messaging',
+                    'employee communication', 'safety updates', 'team coordination',
+                    'mobile notifications', 'message tracking', 'communication logs'
+                ],
+                relatedFeatures: ['mobile_app', 'notification_system'],
+                url: '/features/messaging'
+            },
+            'mobile_app': {
+                name: 'Mobile-First Field Engagement',
+                description: 'Empower your workforce with a mobile app supporting real-time reporting, training access, and form submissions from the field.',
+                keywords: [
+                    'mobile access', 'field operations', 'remote workforce',
+                    'real-time reporting', 'field communication', 'mobile forms',
+                    'app-based safety', 'digital tools', 'workforce engagement',
+                    'employee adoption', 'mobile solution', 'field documentation'
+                ],
+                relatedFeatures: ['forms_builder', 'incident_reporter', 'timeclock'],
+                url: '/features/mobile-app'
+            },
+            'analytics_dashboard': {
+                name: 'Real-Time Reporting & Insights',
+                description: 'Make informed decisions with dashboards showing trends in incidents, training, time tracking, and task completion.',
+                keywords: [
+                    'safety metrics', 'performance tracking', 'trend analysis',
+                    'data insights', 'compliance reporting', 'safety statistics',
+                    'risk analytics', 'performance indicators', 'safety scorecard',
+                    'incident trends', 'training completion', 'audit preparation',
+                    'underwriting data', 'insurance reporting'
+                ],
+                relatedFeatures: ['incident_reporter', 'training_manager', 'timeclock'],
+                url: '/features/analytics'
+            }
+        };
+
+        // Search function that returns relevant features based on user input
+        function searchFeatures(searchPhrase) {
+            const results = [];
+            const searchTerms = searchPhrase.toLowerCase().split(' ');
+
+            // Calculate relevance score for each feature
+            Object.entries(featureDatabase).forEach(([key, feature]) => {
+                let relevanceScore = 0;
+
+                // Check keywords
+                searchTerms.forEach(term => {
+                    feature.keywords.forEach(keyword => {
+                        if (keyword.toLowerCase().includes(term)) {
+                            relevanceScore += 2; // Keywords are weighted more heavily
+                        }
+                    });
+
+                    // Check description
+                    if (feature.description.toLowerCase().includes(term)) {
+                        relevanceScore += 1;
+                    }
+
+                    // Check feature name
+                    if (feature.name.toLowerCase().includes(term)) {
+                        relevanceScore += 3; // Direct feature name matches are highest priority
+                    }
+                });
+
+                if (relevanceScore > 0) {
+                    results.push({
+                        ...feature,
+                        relevanceScore,
+                        id: key
+                    });
+                }
+            });
+
+            // Sort results by relevance score
+            return results.sort((a, b) => b.relevanceScore - a.relevanceScore);
+        }
+
+        // Function to display results in the UI
+        function displayResults(results) {
+            const resultsContainer = document.getElementById('search-results');
+            resultsContainer.innerHTML = '';
+
+            if (results.length === 0) {
+                resultsContainer.innerHTML = '<p>No matching features found. Try different search terms.</p>';
+                return;
+            }
+
+            results.forEach(result => {
+                const resultElement = document.createElement('div');
+                resultElement.className = 'search-result';
+                resultElement.innerHTML = `
+            <h3>${result.name}</h3>
+            <p>${result.description}</p>
+            <div class="related-features">
+                ${result.relatedFeatures.map(feature =>
+                    `<span class="related-feature-tag">${featureDatabase[feature]?.name || feature}</span>`
+                ).join('')}
+            </div>
+            <a href="${result.url}" class="learn-more">Learn More</a>
+        `;
+                resultsContainer.appendChild(resultElement);
+            });
+        }
+
+        // Event listener for search input
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('feature-search');
+            const searchButton = document.getElementById('search-button');
+
+            // Debounce function to limit API calls
+            function debounce(func, wait) {
+                let timeout;
+                return function executedFunction(...args) {
+                    const later = () => {
+                        clearTimeout(timeout);
+                        func(...args);
+                    };
+                    clearTimeout(timeout);
+                    timeout = setTimeout(later, wait);
+                };
+            }
+
+            // Handle search input
+            const handleSearch = debounce(() => {
+                const searchPhrase = searchInput.value.trim();
+                if (searchPhrase.length >= 2) {
+                    const results = searchFeatures(searchPhrase);
+                    displayResults(results);
+                }
+            }, 300);
+
+            searchInput.addEventListener('input', handleSearch);
+            searchButton.addEventListener('click', handleSearch);
+        });
+
+    </script>
+
+</body>
+
+</html>
