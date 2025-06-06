@@ -1,0 +1,19 @@
+title: Acrisure Safety
+description: Reduce Insurance Costs for High-Risk Industries
+baseurl: ""
+url: "https://acrisuresafety.com"
+
+# Build settings
+markdown: kramdown
+sass:
+  style: compressed
+
+# Exclude files from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .git
+  - .gitignore
+  - README.md

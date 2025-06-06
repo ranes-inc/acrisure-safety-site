@@ -1,0 +1,44 @@
+# Jekyll build output
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+.jekyll-now
+
+# Ruby dependencies
+.bundle/
+vendor/
+Gemfile.lock
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary files
+*.log
+*.tmp
+*.temp
+
+# Local development environment
+.env
+.env.local
+node_modules/
+
+# Backup files
+*.bak
+*.backup
+*copy*
+index2.html
+index3.html
